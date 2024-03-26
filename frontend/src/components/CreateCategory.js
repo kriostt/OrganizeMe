@@ -19,7 +19,7 @@ const CreateCategory = () => {
   // get and set categories from server
   const readCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/categories");
+      const res = await axios.get("http://localhost:3001/get-categories");
 
       if (res.status === 200) {
         setCategories(res.data);
@@ -59,10 +59,10 @@ const CreateCategory = () => {
       );
 
       if (res.status === 200) {
-        // if successful, reset the form and display success message
+        // if successful, reset the form, display success message, and add category page
         resetForm();
         alert(res.data.message);
-        navigate(-1);
+        navigate("/add-category");
       }
     } catch (error) {
       console.log(error);
@@ -93,6 +93,24 @@ const CreateCategory = () => {
     // set validation errors and return if the form is valid
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
+  };
+
+  // function to format colour string
+  const formatColourString = (colour) => {
+    // define colour names to more commonly used names for same hues
+    const colours = {
+      lightcoral: "Red",
+      lightsalmon: "Orange",
+      palegoldenrod: "Yellow",
+      lightgreen: "Green",
+      lightblue: "Blue",
+      plum: "Purple",
+      lightpink: "Pink",
+      lightgray: "Gray",
+      tan: "Brown",
+    };
+
+    return colours[colour];
   };
 
   // JSX for the form and page elements
@@ -131,31 +149,31 @@ const CreateCategory = () => {
             className="form-control"
           >
             <option value="">Select a colour</option>
-            <option value="lightcoral" className="red-option">
+            <option value="lightcoral" className="category-lightcoral">
               Red
             </option>
-            <option value="lightsalmon" className="orange-option">
+            <option value="lightsalmon" className="category-lightsalmon">
               Orange
             </option>
-            <option value="palegoldenrod" className="yellow-option">
+            <option value="palegoldenrod" className="category-palegoldenrod">
               Yellow
             </option>
-            <option value="lightgreen" className="green-option">
+            <option value="lightgreen" className="category-lightgreen">
               Green
             </option>
-            <option value="lightblue" className="blue-option">
+            <option value="lightblue" className="category-lightblue">
               Blue
             </option>
-            <option value="plum" className="purple-option">
+            <option value="plum" className="category-plum">
               Purple
             </option>
-            <option value="lightpink" className="pink-option">
+            <option value="lightpink" className="category-lightpink">
               Pink
             </option>
-            <option value="lightgray" className="gray-option">
+            <option value="lightgray" className="category-lightgray">
               Gray
             </option>
-            <option value="tan" className="brown-option">
+            <option value="tan" className="category-tan">
               Brown
             </option>
           </select>
@@ -167,7 +185,7 @@ const CreateCategory = () => {
         </button>
 
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/add")}
           className="btn btn-danger btn-lg mr-3"
         >
           Cancel
@@ -183,9 +201,9 @@ const CreateCategory = () => {
           {/* table column titles */}
           <thead className="thead-light">
             <tr>
-              <th className="col-6">Name</th>
-              <th className="col-4">Colour</th>
-              <th></th>
+              <th className="column-header col-2" scope="col">Colour</th>
+              <th className="column-header" scope="col">Name</th>             
+              <th className="column-header col-2"></th>
             </tr>
           </thead>
 
@@ -194,21 +212,27 @@ const CreateCategory = () => {
             {/* map through list of categories and display each item in table row */}
             {categories.map((category) => (
               <tr key={category._id}>
-                <td>{category.name}</td>
-                <td>{category.colour}</td>
+                <td
+                  className={`text-center category-${
+                    category && category.colour ? category.colour : "default"
+                  }`}
+                >
+                  {formatColourString(category.colour)}
+                </td>
+                <td className="text-center">{category.name}</td>
                 <td className="text-center">
-                    <button
-                      onClick={() => navigate("/edit")}
-                      className="btn btn-primary mr-2 ml-2 mb-1 mt-1"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => navigate("/delete")}
-                      className="btn btn-danger mr-2 ml-2 mb-1 mt-1"
-                    >
-                      Delete
-                    </button>
+                  <button
+                    onClick={() => navigate(`/edit-category/${category._id}`)}
+                    className="btn btn-primary mr-2 ml-2 py-1"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => navigate(`/delete-category/${category._id}`)}
+                    className="btn btn-danger mr-2 ml-2 py-1"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
