@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import CreateToDo from "./components/CreateToDo";
 import ReadToDoList from "./components/ReadToDoList";
 import CreateCategory from "./components/CreateCategory";
+import UpdateCategory from "./components/UpdateCategory";
+import DeleteCategory from "./components/DeleteCategory";
+import "./App.css";
 
 // main component for application
 function App() {
@@ -16,6 +19,12 @@ function App() {
 
       {/* route for adding a new category */}
       <Route path="/add-category" element={<CreateCategory />} />
+
+      {/* route for editing a category */}
+      <Route path="/edit-category/:id" element={<UpdateCategory />} />
+
+      {/* route for deleting a category */}
+      <Route path="/delete-category/:id" element={<DeleteCategory />} />
     </Routes>
   );
 }
