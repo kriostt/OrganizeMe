@@ -1,0 +1,39 @@
+.red-option {
+  background-color: lightcoral;
+}
+
+.orange-option {
+  background-color: lightsalmon;
+}
+
+.yellow-option {
+  background-color: palegoldenrod;
+}
+
+.green-option {
+  background-color: lightgreen;
+}
+
+.blue-option {
+  background-color: lightblue;
+}
+
+.purple-option {
+  background-color: plum;
+}
+
+.pink-option {
+  background-color: lightpink;
+}
+
+.gray-option {
+  background-color: lightgray;
+}
+
+.brown-option {
+  background-color: tan;
+}
+
+#categories-header {
+  margin-top: 3rem;
+}
