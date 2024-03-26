@@ -7,8 +7,9 @@ const cors = require("cors");
 
 // import custom function for connection to MongoDB
 const connectDb = require("./database/db");
-// import to do routes
+// import routes
 const toDoRoutes = require("./routes/toDo");
+const categoryRoutes = require("./routes/category");
 
 // import Express.js framework
 const express = require("express");
@@ -26,6 +27,7 @@ app.use(bodyParser.json()); // parse JSON bodies
 
 // load routes
 app.use("/", toDoRoutes); // mount to do routes on root path
+app.use("/", categoryRoutes); // mount category routes on root path
 
 // set port for the server
 const PORT = process.env.PORT || 3001;
