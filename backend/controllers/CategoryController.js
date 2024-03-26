@@ -3,9 +3,11 @@ const Category = require("../models/Category");
 
 // get list of categories
 const getCategories = (req, res, next) => {
-  Category.find() // MongoDB query to retrieve all categories
+  // MongoDB query to retrieve all categories
+  Category.find()
     .then((response) => {
-      res.status(200).json(response); // send the response as JSON
+      // send the response as JSON
+      res.status(200).json(response);
     })
     .catch((error) => {
       res.status(400).json({
@@ -21,9 +23,11 @@ const getCategory = (req, res, next) => {
   // get id from request parameters
   let categoryId = req.params.id;
 
-  Category.findById(categoryId) // MongoDB query to retrieve category by id
+  // MongoDB query to retrieve category by id
+  Category.findById(categoryId)
     .then((response) => {
-      res.status(200).json(response); // send the response as JSON
+      // send the response as JSON
+      res.status(200).json(response);
     })
     .catch((error) => {
       res.status(400).json({
@@ -42,7 +46,8 @@ const addCategory = (req, res, next) => {
   });
 
   category
-    .save() // MongoDB query to save category into database
+    // MongoDB query to save category into database
+    .save()
     .then((response) => {
       res.status(200).json({
         response,

@@ -34,6 +34,7 @@ const toDoSchema = new Schema({
 });
 
 // define ToDo model based on schema
+// use mongoose.models.ToDo if already defined, else define a new model
 const ToDo = mongoose.models.ToDo || mongoose.model("ToDo", toDoSchema);
 
 // export ToDo model

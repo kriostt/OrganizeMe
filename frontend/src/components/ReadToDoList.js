@@ -14,6 +14,7 @@ const ReadToDoList = () => {
       const res = await axios.get("http://localhost:3001/");
 
       if (res.status === 200) {
+        // set toDoList in state
         setToDoList(res.data);
       }
     } catch (error) {
@@ -33,7 +34,10 @@ const ReadToDoList = () => {
       return "";
     }
 
+    // create new Date object from date string
     const date = new Date(dateString);
+
+    // define options for formatting the date
     const options = {
       year: "numeric",
       month: "2-digit",
@@ -41,10 +45,15 @@ const ReadToDoList = () => {
       hour: "2-digit",
       minute: "2-digit",
     };
+
+    // format the date using toLocaleString with the defined options
     const formattedDate = date.toLocaleString(undefined, options);
+
+    // return the formatted date
     return formattedDate;
   };
 
+  // JSX for the component
   return (
     <div>
       {/* link to navigate to Add To Do page */}

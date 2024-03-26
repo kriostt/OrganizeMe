@@ -8,7 +8,7 @@ const CreateCategory = () => {
   // hook to navigate between pages
   const navigate = useNavigate();
 
-  // state variables
+  // state variables for categories, validation errors, and category inputs
   const [categories, setCategories] = useState([]);
   const [validationErrors, setValidationErrors] = useState({});
   const [category, setCategory] = useState({
@@ -22,6 +22,7 @@ const CreateCategory = () => {
       const res = await axios.get("http://localhost:3001/get-categories");
 
       if (res.status === 200) {
+        // set categories in state
         setCategories(res.data);
       }
     } catch (error) {
@@ -37,6 +38,7 @@ const CreateCategory = () => {
   // event handler for input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // update category state with new input value
     setCategory({ ...category, [name]: value });
   };
 
@@ -44,7 +46,7 @@ const CreateCategory = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // check if form is valid
+    // check if form is valid, then proceed to add category
     if (validateForm()) {
       handleAdd();
     }
@@ -59,10 +61,9 @@ const CreateCategory = () => {
       );
 
       if (res.status === 200) {
-        // if successful, reset the form, display success message, and add category page
+        // if successful, reset the form and display success message
         resetForm();
         alert(res.data.message);
-        navigate("/add-category");
       }
     } catch (error) {
       console.log(error);
@@ -75,23 +76,25 @@ const CreateCategory = () => {
       name: "",
       colour: "",
     });
-
-    setValidationErrors({});
   };
 
   // validate the form inputs to ensure they are provided
   const validateForm = () => {
     const errors = {};
 
+    // set error message if category name is empty
     if (!category.name.trim()) {
       errors.name = "Please enter the category name.";
     }
+    // set error message if category colour is empty
     if (!category.colour.trim()) {
       errors.colour = "Please enter the category colour.";
     }
 
-    // set validation errors and return if the form is valid
+    // set validation errors
     setValidationErrors(errors);
+
+    // return true if there are no validation errors
     return Object.keys(errors).length === 0;
   };
 
@@ -110,6 +113,7 @@ const CreateCategory = () => {
       tan: "Brown",
     };
 
+    // return formatted colour name
     return colours[colour];
   };
 
@@ -149,6 +153,7 @@ const CreateCategory = () => {
             className="form-control"
           >
             <option value="">Select a colour</option>
+            {/* options for selecting category colour */}
             <option value="lightcoral" className="category-lightcoral">
               Red
             </option>
@@ -201,8 +206,12 @@ const CreateCategory = () => {
           {/* table column titles */}
           <thead className="thead-light">
             <tr>
-              <th className="column-header col-2" scope="col">Colour</th>
-              <th className="column-header" scope="col">Name</th>             
+              <th className="column-header col-2" scope="col">
+                Colour
+              </th>
+              <th className="column-header" scope="col">
+                Name
+              </th>
               <th className="column-header col-2"></th>
             </tr>
           </thead>
@@ -212,6 +221,7 @@ const CreateCategory = () => {
             {/* map through list of categories and display each item in table row */}
             {categories.map((category) => (
               <tr key={category._id}>
+                {/* set the colour of the colour table cell to match the text */}
                 <td
                   className={`text-center category-${
                     category && category.colour ? category.colour : "default"
@@ -219,7 +229,10 @@ const CreateCategory = () => {
                 >
                   {formatColourString(category.colour)}
                 </td>
+
                 <td className="text-center">{category.name}</td>
+
+                {/* buttons to edit or delete category*/}
                 <td className="text-center">
                   <button
                     onClick={() => navigate(`/edit-category/${category._id}`)}

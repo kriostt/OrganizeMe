@@ -24,6 +24,7 @@ const categorySchema = new Schema({
 });
 
 // define Category model based on schema
+// use mongoose.models.Category if already defined, else define a new model
 const Category =
   mongoose.models.Category || mongoose.model("Category", categorySchema);
 

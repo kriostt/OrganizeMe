@@ -11,7 +11,7 @@ const UpdateCategory = () => {
   // extract parameters from URL
   let { id } = useParams();
 
-  // state variables
+  // state variables for validation errors and category data
   const [validationErrors, setValidationErrors] = useState({});
   const [category, setCategory] = useState({
     name: "",
@@ -21,11 +21,10 @@ const UpdateCategory = () => {
   // get and set a single category from server
   const readCategory = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:3001/get-category/${id}`
-      );
+      const res = await axios.get(`http://localhost:3001/get-category/${id}`);
 
       if (res.status === 200) {
+        // set category in state
         setCategory(res.data);
       }
     } catch (error) {
@@ -33,7 +32,7 @@ const UpdateCategory = () => {
     }
   };
 
-  // run initial data fetching when id changes
+  // run readCategory on component mount or when id changes
   useEffect(() => {
     readCategory();
   }, [id]);
@@ -41,6 +40,7 @@ const UpdateCategory = () => {
   // event handler for input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // update category state with new input value
     setCategory({ ...category, [name]: value });
   };
 
@@ -48,7 +48,7 @@ const UpdateCategory = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // check if form is valid
+    // check if form is valid, then proceed to add category
     if (validateForm()) {
       handleEdit();
     }
@@ -57,7 +57,10 @@ const UpdateCategory = () => {
   // edit existing category
   const handleEdit = async () => {
     try {
-      const res = await axios.put(`http://localhost:3001/edit-category/${id}`, category);
+      const res = await axios.put(
+        `http://localhost:3001/edit-category/${id}`,
+        category
+      );
 
       if (res.status === 200) {
         // if successful, reset the form, display success message, and retun to add categories page
@@ -76,23 +79,25 @@ const UpdateCategory = () => {
       name: "",
       colour: "",
     });
-
-    setValidationErrors({});
   };
 
   // validate the form inputs to ensure they are provided
   const validateForm = () => {
     const errors = {};
 
+    // set error message if category name is empty
     if (!category.name.trim()) {
       errors.name = "Please enter the category name.";
     }
+    // set error message if category colour is empty
     if (!category.colour.trim()) {
       errors.colour = "Please enter the category colour.";
     }
 
-    // set validation errors and return if the form is valid
+    // set validation errors
     setValidationErrors(errors);
+
+    // return true if there are no validation errors
     return Object.keys(errors).length === 0;
   };
 
@@ -132,6 +137,7 @@ const UpdateCategory = () => {
             className="form-control"
           >
             <option value="">Select a colour</option>
+            {/* options for selecting category colour */}
             <option value="lightcoral" className="red-option">
               Red
             </option>

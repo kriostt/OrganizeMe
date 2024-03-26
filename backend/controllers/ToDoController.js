@@ -3,11 +3,14 @@ const ToDo = require("../models/ToDo");
 
 // show list of to do list items
 const index = (req, res, next) => {
-  ToDo.find() // MongoDB query to retrieve all to do list items
-    .populate("category", ["name", "colour"]) // populate both name and colour fields of category
+  // MongoDB query to retrieve all to do list items
+  ToDo.find()
+    // populate both name and colour fields of category
+    .populate("category", ["name", "colour"])
     .exec()
     .then((response) => {
-      res.status(200).json(response); // send the response as JSON
+      // send the response as JSON
+      res.status(200).json(response);
     })
     .catch((error) => {
       res.status(400).json({
@@ -28,7 +31,8 @@ const add = (req, res, next) => {
   });
 
   toDo
-    .save() // MongoDB query to save to do list item into database
+    // MongoDB query to save to do list item into database
+    .save()
     .then((response) => {
       res.status(200).json({
         response,

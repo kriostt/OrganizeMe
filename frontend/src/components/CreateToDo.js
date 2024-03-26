@@ -1,4 +1,4 @@
-// import necessary modules 
+// import necessary modules
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +24,7 @@ const CreateToDo = () => {
       const res = await axios.get("http://localhost:3001/get-categories");
 
       if (res.status === 200) {
+        // set categories in state
         setCategories(res.data);
       }
     } catch (error) {
@@ -42,8 +43,10 @@ const CreateToDo = () => {
 
     // check if user wants to add a new category
     if (value === "newCategory") {
+      // navigate to add category page
       navigate("/add-category");
     } else {
+      // update toDo state with new input value
       setToDo({ ...toDo, [name]: value });
     }
   };
@@ -54,8 +57,10 @@ const CreateToDo = () => {
 
     // check if form is valid
     if (!toDo.title.trim()) {
+      // set titleError state with error message
       setTitleError("Please enter the title for the to do item.");
     } else {
+      // proceed to add toDo
       handleAdd();
     }
   };
@@ -95,7 +100,6 @@ const CreateToDo = () => {
 
       {/* to do list item form */}
       <form onSubmit={handleSubmit}>
-
         {/* dropdown for category */}
         <div className="form-group">
           <label>Category:</label>
@@ -111,12 +115,12 @@ const CreateToDo = () => {
                 {category.name}
               </option>
             ))}
-            
+
             {/* render option for adding a new category */}
             <option value="newCategory">Add a new category</option>
           </select>
         </div>
-        
+
         {/* label and input for title */}
         <div className="form-group">
           <label>Title:</label>

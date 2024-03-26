@@ -26,6 +26,7 @@ const DeleteCategory = () => {
     }
   };
 
+  // JSX for the delete category page
   return (
     <div>
       <h2>Delete Category</h2>
