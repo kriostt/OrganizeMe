@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./ReadToDoList.css";
 
 // component for getting to do list
 const ReadToDoList = () => {
