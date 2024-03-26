@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./CreateCategory.css";
 
 // component for adding new to do list items
 const CreateToDo = () => {
@@ -22,7 +21,7 @@ const CreateToDo = () => {
   // get and set categories from server
   const readCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/categories");
+      const res = await axios.get("http://localhost:3001/get-categories");
 
       if (res.status === 200) {
         setCategories(res.data);
