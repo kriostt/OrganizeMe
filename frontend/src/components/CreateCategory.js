@@ -30,10 +30,10 @@ const CreateCategory = () => {
     }
   };
 
-  // run readCategories on component mount
+  // run readCategories on component mount and when categories change
   useEffect(() => {
     readCategories();
-  }, []);
+  }, [categories]);
 
   // event handler for input changes
   const handleChange = (e) => {
