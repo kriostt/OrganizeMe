@@ -68,16 +68,16 @@ const ReadToDoList = () => {
           {/* table column titles */}
           <thead className="thead-light">
             <tr>
-              <th className="column-header" scope="col">
+              <th className="column-header col-2" scope="col">
                 Category
               </th>
-              <th className="column-header" scope="col">
+              <th className="column-header col-2" scope="col">
                 Title
               </th>
               <th className="column-header" scope="col">
                 Description
               </th>
-              <th className="column-header" scope="col">
+              <th className="column-header col-2" scope="col">
                 Due Date
               </th>
             </tr>
@@ -89,7 +89,7 @@ const ReadToDoList = () => {
             {toDoList.map((toDo) => (
               <tr key={toDo._id}>
                 <td
-                  className={`category-${
+                  className={`text-center category-${
                     toDo.category && toDo.category.colour
                       ? toDo.category.colour
                       : "default"
@@ -100,9 +100,9 @@ const ReadToDoList = () => {
                     ? toDo.category.name
                     : ""}
                 </td>
-                <td>{toDo.title}</td>
-                <td>{toDo.description}</td>
-                <td>{formatDate(toDo.dueDate)}</td>
+                <td className="text-center">{toDo.title}</td>
+                <td className="text-center">{toDo.description}</td>
+                <td className="text-center">{formatDate(toDo.dueDate)}</td>
               </tr>
             ))}
           </tbody>
