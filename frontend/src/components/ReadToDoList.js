@@ -58,7 +58,7 @@ const ReadToDoList = () => {
     <div>
       {/* link to navigate to Add To Do page */}
       <Link to="/add" className="btn btn-primary mb-3">
-        Add To Do
+        Add Task
       </Link>
 
       {/* check if to do list exists */}

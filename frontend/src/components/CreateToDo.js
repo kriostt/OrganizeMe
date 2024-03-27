@@ -58,7 +58,7 @@ const CreateToDo = () => {
     // check if form is valid
     if (!toDo.title.trim()) {
       // set titleError state with error message
-      setTitleError("Please enter the title for the to do item.");
+      setTitleError("Please enter the title for the task.");
     } else {
       // proceed to add toDo
       handleAdd();
