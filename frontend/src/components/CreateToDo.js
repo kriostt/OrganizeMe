@@ -93,7 +93,7 @@ const CreateToDo = () => {
   // JSX for the form and page elements
   return (
     <div>
-      <h2>Add To Do</h2>
+      <h2>Add Task</h2>
 
       {/* display validation errors if there's any */}
       <p className="text-danger">{titleError}</p>
