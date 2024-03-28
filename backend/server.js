@@ -10,9 +10,6 @@ const connectDb = require("./database/db");
 // import to do routes
 const toDoRoutes = require("./routes/toDo");
 
-// import the calendar routes
-const calendarRoutes = require("./routes/calendar");
-
 // import Express.js framework
 const express = require("express");
 // create an instance of Express application
@@ -29,7 +26,6 @@ app.use(bodyParser.json()); // parse JSON bodies
 
 // load routes
 app.use("/", toDoRoutes); // mount to do routes on root path
-app.use("/calendar", calendarRoutes);
 
 // set port for the server
 const PORT = process.env.PORT || 3001;
