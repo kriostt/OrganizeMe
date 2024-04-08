@@ -57,7 +57,7 @@ const ReadToDoList = () => {
   return (
     <div>
       {/* link to navigate to Add To Do page */}
-      <Link to="/add" className="btn btn-primary mb-3">
+      <Link to="/add" className="btn btn-primary-task">
         Add Task
       </Link>
 
@@ -102,7 +102,9 @@ const ReadToDoList = () => {
                 </td>
                 <td className="custom-text-center">{toDo.title}</td>
                 <td className="custom-text-center">{toDo.description}</td>
-                <td className="custom-text-center">{formatDate(toDo.dueDate)}</td>
+                <td className="custom-text-center">
+                  {formatDate(toDo.dueDate)}
+                </td>
               </tr>
             ))}
           </tbody>

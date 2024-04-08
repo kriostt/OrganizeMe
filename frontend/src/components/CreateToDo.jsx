@@ -74,6 +74,7 @@ const CreateToDo = () => {
         // if successful, reset the form and dispaly success message
         resetForm();
         alert(res.data.message);
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
@@ -96,7 +97,7 @@ const CreateToDo = () => {
       <h2>Add Task</h2>
 
       {/* display validation errors if there's any */}
-      <p className="text-danger">{titleError}</p>
+      <p className="text-red-500">{titleError}</p>
 
       {/* to do list item form */}
       <form onSubmit={handleSubmit}>

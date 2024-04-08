@@ -107,29 +107,244 @@ body {
   background-color: lightpink;
 }
 
-.custom-category-default {
-  background-color: white;
+/* Style for Add Task button */
+.btn-primary-task {
+  background-color: #1c72ced6;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Style for custom table */
 .custom-table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0;
+  margin-top: 25px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .custom-thead {
-  background-color: #f8f9fa; /* Lighter gray */
+  background-color: #f2f2f2; /* Light Gray */
 }
 
 .custom-column-header {
-  padding: 8px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.custom-col-2 {
-  width: 25%;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light Gray */
 }
 
 .custom-text-center {
   text-align: center;
+}
+
+/* Style for table rows */
+tbody tr {
+  background-color: #fff; /* White */
+}
+
+tbody tr:hover {
+  background-color: #ddd; /* Darker Gray */
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd; /* Light Gray */
+}
+
+/* Style for table cell in first column */
+.custom-category {
+  font-weight: bold;
+}
+
+/* Style for table cell in second column */
+.custom-title {
+  font-style: italic;
+}
+
+/* Style for table cell in third column */
+.custom-description {
+  font-family: Arial, sans-serif;
+  color: #666;
+}
+
+/* Style for table cell in fourth column */
+.custom-due-date {
+  font-weight: bold;
+  color: #ff6347; /* Tomato */
+}
+
+/* Style for table rows */
+.custom-table tbody tr {
+  border-bottom: 1px solid #ddd; /* Light Gray */
+}
+
+/* Style for table cells */
+.custom-table td,
+.custom-table th {
+  border-left: 1px solid #ddd; /* Light Gray */
+  padding: 12px;
+}
+
+/* Style for table cell in first column */
+.custom-table td:first-child,
+.custom-table th:first-child {
+  border-left: none;
+}
+
+/* Style for table header cells */
+.custom-table th {
+  background-color: #f2f2f2; /* Light Gray */
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Style for the heading */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style for validation errors */
+.text-danger {
+  color: #dc3545; /* Red */
+}
+
+/* Style for form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style for form inputs */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da; /* Gray */
+  border-radius: 5px;
+}
+
+/* Style for buttons */
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style for Add button */
+.btn-success {
+  background-color: #28a745; /* Green */
+  color: #fff;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Darker Green */
+}
+
+/* Style for Cancel button */
+.btn-danger {
+  background-color: #dc3545; /* Red */
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darker Red */
+}
+
+/* Margin for buttons */
+.btn-lg {
+  margin-right: 10px;
+}
+
+/* Style for header */
+#categories-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style for table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Style for table header */
+.table th {
+  padding: 12px;
+  text-align: left;
+  background-color: #f8f9fa; /* Light Gray */
+}
+
+/* Style for table rows */
+.table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd; /* Light Gray */
+}
+
+/* Style for table cell in first column */
+.category-color {
+  font-weight: bold;
+}
+
+/* Style for buttons */
+.btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+/* Style for Edit button */
+.btn-primary {
+  background-color: #007bff; /* Blue */
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker Blue */
+}
+
+/* Style for Delete button */
+.btn-danger {
+  background-color: #dc3545; /* Red */
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darker Red */
+}
+
+.homepage-title {
+  margin-bottom: 20px;
+}
+
+.homepage-description {
+  margin-bottom: 20px;
+}
+.homepage-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #377dc9; /* Blue */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.homepage-button:hover {
+  background-color: #0056b3; /* Darker Blue */
 }
