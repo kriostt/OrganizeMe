@@ -9,6 +9,9 @@ const cors = require("cors");
 const connectDb = require("./database/db");
 // import routes
 const toDoRoutes = require("./routes/toDo");
+
+// import the calendar routes
+const calendarRoutes = require("./routes/calendar");
 const categoryRoutes = require("./routes/category");
 
 // import Express.js framework
@@ -27,6 +30,7 @@ app.use(bodyParser.json()); // parse JSON bodies
 
 // load routes
 app.use("/", toDoRoutes); // mount to do routes on root path
+app.use("/calendar", calendarRoutes);
 app.use("/", categoryRoutes); // mount category routes on root path
 
 // set port for the server

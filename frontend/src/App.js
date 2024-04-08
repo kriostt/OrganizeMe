@@ -1,14 +1,19 @@
 // import necessary components and modules
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CreateToDo from "./components/CreateToDo";
 import ReadToDoList from "./components/ReadToDoList";
 import CreateCategory from "./components/CreateCategory";
 import UpdateCategory from "./components/UpdateCategory";
 import DeleteCategory from "./components/DeleteCategory";
+import React from "react";
+import Calendar from "./components/CalendarFeature/Calendar";
+import Homepage from "./components/Homepage/Homepage";
+import Favorites from "./components/Favorites/Favorites";
+import Trash from "./components/Trash/Trash";
 import "./App.css";
 
 // main component for application
-function App() {
+function App(){
   return (
     <Routes>
       {/* route for displaying to do list */}
@@ -25,9 +30,15 @@ function App() {
 
       {/* route for deleting a category */}
       <Route path="/delete-category/:id" element={<DeleteCategory />} />
+
+      <Route path="/" element={<Homepage />} />
+      <Route path="/calendar" element={<Calendar />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/trash" element={<Trash />} />
     </Routes>
+            
   );
-}
+};
 
 // export the App component
 export default App;
