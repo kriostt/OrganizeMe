@@ -7,8 +7,12 @@ const cors = require("cors");
 
 // import custom function for connection to MongoDB
 const connectDb = require("./database/db");
-// import to do routes
+// import routes
 const toDoRoutes = require("./routes/toDo");
+
+// import the calendar routes
+const calendarRoutes = require("./routes/calendar");
+const categoryRoutes = require("./routes/category");
 
 // import Express.js framework
 const express = require("express");
@@ -31,6 +35,8 @@ app.use(bodyParser.json()); // parse JSON bodies
 
 // load routes
 app.use("/", toDoRoutes); // mount to do rout es on root path
+app.use("/calendar", calendarRoutes);
+app.use("/", categoryRoutes); // mount category routes on root path
 
 // global error handler
 app.use((err, req, res, next) => {

@@ -1,17 +1,21 @@
-// Importing required modules
-const mongoose = require("mongoose"); // Importing Mongoose for MongoDB object modeling
+// import Mongoose for MongoDB object modelling
+const mongoose = require("mongoose");
 
-// Defining an asynchronous function to connect to the MongoDB database
+// define an asynchronous function to connect to MongoDB database
 const connectDb = async () => {
   try {
-    // Attempting to connect to the MongoDB Atlas cluster
+    // attempt to connect to MongoDB
     await mongoose.connect(
-      `mongodb+srv://alessandravendicacion:avjqO1NrPjWqMtQZ@cluster0.s5jpsqe.mongodb.net/OrganizeMe`
+      "mongodb+srv://alessandravendicacion:avjqO1NrPjWqMtQZ@cluster0.s5jpsqe.mongodb.net/OrganizeMe"
     );
-    console.log("DB connected successfully"); // Logging success message if connection is successful
+
+    // log success message if connection is successful
+    console.log("DB connected successfully");
   } catch (error) {
-    console.log("DB not connected"); // Logging error message if connection fails
+    // log error message if connection is unsuccessful
+    console.log("DB not connected");
   }
 };
 
-module.exports = connectDb; // Exporting the function to connect to the database
+// export connectDb function to connect to the database
+module.exports = connectDb;
