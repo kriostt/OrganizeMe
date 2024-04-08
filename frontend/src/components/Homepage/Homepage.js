@@ -9,7 +9,7 @@ const Homepage = () => {
       <div className="homepage-content">
         <h1 className="homepage-title">Welcome to OrganizeMe!</h1>
         <p className="homepage-description">
-          OrganizeMe helps you manage your schedule effortlessly. Keep track of your events, mark your favorites, and declutter your calendar with ease.
+          OrganizeMe helps you manage your schedule effortlessly. Keep track of your events, mark your favourites, and declutter your calendar with ease.
         </p>
         <div className="homepage-buttons">
           <Link to="/Calendar" className="homepage-button">Calendar</Link>
@@ -17,6 +17,8 @@ const Homepage = () => {
           <Link to="/Favorites" className="homepage-button">View Favorites</Link>
           
           <Link to="/Trash" className="homepage-button">View Trash</Link>
+          <Link to="/calendar" className="homepage-button">Start Organizing</Link>
+          <Link to="/favourites" className="homepage-button">View Favourites</Link>
         </div>
       </div>
       <div className="homepage-image">
