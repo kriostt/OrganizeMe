@@ -106,3 +106,30 @@ body {
 .category-lightpink {
   background-color: lightpink;
 }
+
+.custom-category-default {
+  background-color: white;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-thead {
+  background-color: #f8f9fa; /* Lighter gray */
+}
+
+.custom-column-header {
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.custom-col-2 {
+  width: 25%;
+}
+
+.custom-text-center {
+  text-align: center;
+}

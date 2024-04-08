@@ -64,20 +64,20 @@ const ReadToDoList = () => {
       {/* check if to do list exists */}
       {toDoList && toDoList.length > 0 ? (
         // display table with to do list
-        <table className="table table-bordered">
+        <table className="custom-table">
           {/* table column titles */}
-          <thead className="thead-light">
+          <thead className="custom-thead">
             <tr>
-              <th className="column-header col-2" scope="col">
+              <th className="custom-column-header custom-col-2" scope="col">
                 Category
               </th>
-              <th className="column-header col-2" scope="col">
+              <th className="custom-column-header custom-col-2" scope="col">
                 Title
               </th>
-              <th className="column-header" scope="col">
+              <th className="custom-column-header" scope="col">
                 Description
               </th>
-              <th className="column-header col-2" scope="col">
+              <th className="custom-column-header custom-col-2" scope="col">
                 Due Date
               </th>
             </tr>
@@ -89,7 +89,7 @@ const ReadToDoList = () => {
             {toDoList.map((toDo) => (
               <tr key={toDo._id}>
                 <td
-                  className={`text-center category-${
+                  className={`custom-text-center custom-category-${
                     toDo.category && toDo.category.colour
                       ? toDo.category.colour
                       : "default"
@@ -100,9 +100,9 @@ const ReadToDoList = () => {
                     ? toDo.category.name
                     : ""}
                 </td>
-                <td className="text-center">{toDo.title}</td>
-                <td className="text-center">{toDo.description}</td>
-                <td className="text-center">{formatDate(toDo.dueDate)}</td>
+                <td className="custom-text-center">{toDo.title}</td>
+                <td className="custom-text-center">{toDo.description}</td>
+                <td className="custom-text-center">{formatDate(toDo.dueDate)}</td>
               </tr>
             ))}
           </tbody>
