@@ -6,8 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./components/UserRegistration/Register";
+import Login from "./components/UserRegistration/Login";
 import Dashboard from "./pages/Dashboard";
 import { useAuth } from "./contexts/AuthContext";
 
