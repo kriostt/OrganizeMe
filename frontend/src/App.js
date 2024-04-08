@@ -17,8 +17,8 @@ function App(){
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/calendar" element={<Calendar />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/trash" element={<Trash />} />
+            <Route path="/Favorites" element={<Favorites />} />
+            <Route path="/Trash" element={<Trash />} />
           </Routes>
         </main>
       </div>

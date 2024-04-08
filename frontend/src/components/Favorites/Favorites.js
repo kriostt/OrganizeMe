@@ -1,7 +1,12 @@
 // Favorites.js
-import React, { useState } from 'react';
+import React from 'react';
 
 const Favorites = ({ events, setEvents }) => {
+  // Ensure events is not null or undefined before using map
+  if (!events || events.length === 0) {
+    return <div>No favorite events</div>;
+  }
+
   const toggleFavorite = (index) => {
     const updatedEvents = [...events];
     updatedEvents[index].favorite = !updatedEvents[index].favorite;

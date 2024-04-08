@@ -1,71 +1,82 @@
 /* homepage.css */
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .header {
-    text-align: center;
-  }
-  
-  .header h1 {
-    font-size: 2.5rem;
-    color: #333;
-  }
-  
-  
-  .navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .navbar ul li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  
-  .navbar ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbar ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  .main-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .footer {
-    text-align: center;
-    margin-top: 20px;
-  
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px; /* Adds padding to body */
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px; /* Adds margin to header */
+}
+
+.header h1 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  margin-bottom: 20px; /* Adds margin to navbar */
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin-right: 30px; /* Increases margin between navbar items */
+}
+
+.navbar ul li:last-child {
+  margin-right: 0; /* Removes margin from last navbar item */
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add margin to main content */
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .start-organizing-btn {
-    margin-right: 10px; /* Adjust the margin as needed */
-  }
-  
-  /* Optionally, you can also style the View Favorites button */
-  .view-favorites-btn {
-    /* Add any additional styling for the View Favorites button */
-  }
-  
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+
+/* Changes the style of the View Favorites button */
+.view-Favorites-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-decoration: none;
+}
