@@ -6,7 +6,7 @@ const connectDb = async () => {
   try {
     // Attempting to connect to the MongoDB Atlas cluster
     await mongoose.connect(
-      "mongodb+srv://ahavendicacion:nc2cWwmdqNDgZ3QB@cluster0.zpjulrc.mongodb.net/OrganizeMe"
+      `mongodb+srv://alessandravendicacion:avjqO1NrPjWqMtQZ@cluster0.s5jpsqe.mongodb.net/OrganizeMe`
     );
     console.log("DB connected successfully"); // Logging success message if connection is successful
   } catch (error) {
