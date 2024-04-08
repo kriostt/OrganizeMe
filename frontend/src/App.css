@@ -75,35 +75,35 @@ body {
   margin-top: 3rem;
 }
 
-.column-header {
+.custom-column-header {
   text-align: center;
 }
 
-.category-lightcoral {
+.custom-category-lightcoral {
   background-color: lightcoral;
 }
 
-.category-lightsalmon {
+.custom-category-lightsalmon {
   background-color: lightsalmon;
 }
 
-.category-palegoldenrod {
+.custom-category-palegoldenrod {
   background-color: palegoldenrod;
 }
 
-.category-lightgreen {
+.custom-category-lightgreen {
   background-color: lightgreen;
 }
 
-.category-lightblue {
+.custom-category-lightblue {
   background-color: lightblue;
 }
 
-.category-plum {
+.custom-category-plum {
   background-color: plum;
 }
 
-.category-lightpink {
+.custom-category-lightpink {
   background-color: lightpink;
 }
 
