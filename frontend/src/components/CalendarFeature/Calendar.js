@@ -11,6 +11,8 @@ const Calendar = () => {
     { id: 3, title: 'Event 3', date: '2024-03-30' },
   ]);
   const [formData, setFormData] = useState({ title: '', date: '' });
+  const [editEventId, setEditEventId] = useState(null); // Track the event being edited
+  const [editedEvent, setEditedEvent] = useState({}); // Track edited event data
 
   const handleFormChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,10 +30,10 @@ const Calendar = () => {
 
   const handleEventClick = info => {
     const eventId = info.event.id;
-    const eventIndex = events.findIndex(event => event.id === eventId);
-    const updatedEvents = [...events];
-    updatedEvents.splice(eventIndex, 1); // Remove the event
-    setEvents(updatedEvents);
+    setEditEventId(eventId); // Set the event being edited
+    const event = events.find(event => event.id === eventId);
+    // Set the edited event data
+    setEditedEvent({ ...event });
   };
 
   const handleDeleteClick = eventId => {
@@ -39,9 +41,13 @@ const Calendar = () => {
     setEvents(updatedEvents);
   };
 
-  const handleEditClick = eventId => {
-    // Handle edit action here, you can open a modal or navigate to another page for editing
-    console.log("Edit event with id:", eventId);
+  const handleEditSubmit = () => {
+    const updatedEvents = events.map(event =>
+      event.id === editEventId ? editedEvent : event
+    );
+    setEvents(updatedEvents);
+    setEditEventId(null); // Reset edit event ID
+    setEditedEvent({}); // Clear edited event data
   };
 
   return (
@@ -69,20 +75,71 @@ const Calendar = () => {
         weekends={true}
         events={events}
         eventClick={handleEventClick} // Call handleEventClick on event click
-        eventContent={({ event }) => renderEventContent(event, handleDeleteClick, handleEditClick)}
+        eventContent={({ event }) =>
+          renderEventContent(event, handleDeleteClick)
+        }
       />
+      {editEventId !== null && (
+        <EditEventModal
+          editedEvent={editedEvent}
+          setEditedEvent={setEditedEvent}
+          onClose={() => setEditEventId(null)}
+          onSubmit={handleEditSubmit}
+        />
+      )}
     </div>
   );
 };
 
 // Custom event content to include delete and edit buttons
-const renderEventContent = (event, handleDeleteClick, handleEditClick) => {
+const renderEventContent = (event, handleDeleteClick) => {
   return (
     <div>
       <b>{event.title}</b>
       <div>
         <button onClick={() => handleDeleteClick(event.id)}>Delete</button>
-        <button onClick={() => handleEditClick(event.id)}>Edit</button>
+        <button onClick={() => console.log("Edit event", event)}>Edit</button>
+      </div>
+    </div>
+  );
+};
+
+// Edit Event Modal Component
+const EditEventModal = ({ editedEvent, setEditedEvent, onClose, onSubmit }) => {
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    setEditedEvent(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    onSubmit();
+  };
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <span className="close" onClick={onClose}>&times;</span>
+        <h2>Edit Event</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="title"
+            value={editedEvent.title || ''}
+            onChange={handleInputChange}
+            placeholder="Enter title"
+          />
+          <input
+            type="date"
+            name="date"
+            value={editedEvent.date || ''}
+            onChange={handleInputChange}
+          />
+          <button type="submit">Save Changes</button>
+        </form>
       </div>
     </div>
   );
