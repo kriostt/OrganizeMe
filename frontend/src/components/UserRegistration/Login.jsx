@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert, Button, Card, Flex, Form, Input, Spin, Typography } from "antd";
 import { Link } from "react-router-dom";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../../hooks/useLogin";
 
 // Login component
 const Login = () => {

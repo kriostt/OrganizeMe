@@ -2,9 +2,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CreateToDo from "./components/CreateToDo";
 import ReadToDoList from "./components/ReadToDoList";
-import CreateCategory from "./components/CreateCategory";
-import UpdateCategory from "./components/UpdateCategory";
-import DeleteCategory from "./components/DeleteCategory";
+import CreateCategory from "./components/TaskCategorization/CreateCategory";
+import UpdateCategory from "./components/TaskCategorization/UpdateCategory";
+import DeleteCategory from "./components/TaskCategorization/DeleteCategory";
 import React from "react";
 import Calendar from "./components/CalendarFeature/Calendar";
 import Homepage from "./components/Homepage/Homepage";
