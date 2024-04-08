@@ -8,14 +8,18 @@ import DeleteCategory from "./components/TaskCategorization/DeleteCategory";
 import React from "react";
 import Calendar from "./components/CalendarFeature/Calendar";
 import Homepage from "./components/Homepage/Homepage";
-import Favorites from "./components/Favorites/Favorites";
+import Favourites from "./components/Favourites/Favourites";
 import Trash from "./components/Trash/Trash";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 // main component for application
 function App(){
   return (
     <Routes>
+      {/* display navigation bar */}
+      <Navbar />
+
       {/* route for displaying to do list */}
       <Route path="/" element={<ReadToDoList />} />
 
@@ -33,7 +37,7 @@ function App(){
 
       <Route path="/" element={<Homepage />} />
       <Route path="/calendar" element={<Calendar />} />
-      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/favourites" element={<Favourites />} />
       <Route path="/trash" element={<Trash />} />
     </Routes>
             
